@@ -1,0 +1,41 @@
+extends index.layout.030215.1.jade
+
+block content
+
+	////////////////////////////////////////////
+	// 		HOMEPAGE SLIDESHOW VIEW
+	//////////////////////////////////////////
+	
+	// this is where we design and setup the home page slide show
+
+	section.slideshow
+		ul.slideshowList
+			li.valley_winds
+				// where all <li> elements contain div.view, div.details
+				div.view
+					div.scene
+						div.vlak_0
+							a(href="http://", target="_blank")
+								.content
+									img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+						div.vlak_1
+							a(href="http://", target="_blank")
+								.content
+									img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+
+				div.details
+					div.content
+						h3 Site of the SkyFire Ritual
+						h2 Valley of the Winds
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti exercitationem neque voluptate repellat. Reiciendis, esse!
+						aside.credits
+							p Credits:  
+								a(href="#") John
+								| , 
+								a(href="#") Sally
+								| , 
+								a(href="#") James
+
+	////////////////////////////////////////////
+
+	

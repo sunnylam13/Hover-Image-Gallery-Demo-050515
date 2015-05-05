@@ -1,0 +1,31 @@
+////////////////////////////////////////////
+///// 		INDEX.JADE/INDEX.HTML
+///////////////////////////////////////////////
+
+// any mixins and variables will be stored in the mixin and variable project files (jade and scss)
+
+////////////////////////////////////////////
+///// 		HOMEPAGE SLIDESHOW VIEW
+///////////////////////////////////////////////
+
+section.slideshow {
+	@include marginPaddingReset1;
+	// expand it to the maximum possible width
+	width: 100%;
+}
+
+ul.slideshowList {
+	@include marginPaddingReset1;
+	// expand it to the maximum possible width
+	width: 100%;
+}
+
+ul.slideshowList li {
+	@include marginPaddingReset1;
+	// expand it to the maximum possible width
+	width: 100%;
+}
+
+///////////////////////////////////////////////
+
+///////////////////////////////////////////////
