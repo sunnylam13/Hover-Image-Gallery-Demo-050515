@@ -15,17 +15,32 @@ section.slideshow {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
 	width: 100%;
+	// TESTING
+	// comment this out when testing
+	height: 80vh;
 
 	// to hide the images from spilling over the edges of the screen
 	overflow: hidden;
+
+	background: black;
+
+	// positioning
+	// set this to position relative so that you can position the li slides relative to it
+	position: relative;
+
 }
 
 section.slideshow ul.slideshowList {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
 	width: 100%;
+	height: auto;
+
+	// flexbox
 }
 
+// ALL SECTIONS
+// the "li" is the slide that we see
 section.slideshow ul.slideshowList li {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
@@ -34,11 +49,55 @@ section.slideshow ul.slideshowList li {
 	// flexbox
 	// want the elements beside each other
 	@include flexboxRow1;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: flex-start;
 
+	// TESTING
+	// border: 1px solid blue;
+
+	// if using the .activeSlide method
+	// TESTING
+	// border: 5px solid green;
+	// position: absolute;
 }
+
+// the first li will not have position absolute
+// the other li's will have position absolute
+// test your CSS selector choices
+
+// using a toggleClass effect would remove the need for numerical targeting
+section.slideshow ul.slideshowList li:first-child {
+	// TESTING
+	// border: 1px solid red;
+	
+	position: static;
+}
+
+// any further li's other than the first should be set to position absolute
+// using jQuery we can toggle the position absolute
+// if using .activeSlide method you take this code and stick it inside all the li's as the default state
+section.slideshow ul.slideshowList li:nth-child(2), section.slideshow ul.slideshowList li:nth-child(3) {
+	// TESTING
+	border: 5px solid green;
+	position: absolute;
+}
+
+// alternative create a class for active slides and inactive slides
+// you apply this to the slide "li"
+// using a toggleClass effect would remove the need for numerical targeting
+// section.slideshow ul.slideshowList li.activeSlide {
+// 	// TESTING
+// 	border: 1px solid red;
+// 	position: static;
+// }
+
+// section.slideshow ul.slideshowList li.nonactiveSlide {
+// 	// TESTING
+// 	border: 1px solid red;
+// 	position: static;
+// }
+
 // // END OVERALL PARENTS ------------------------------------------------
 
 
@@ -50,6 +109,9 @@ section.slideshow ul.slideshowList li .view {
 	// flex child
 	flex: 2 66.666666667%;
 	order: 2;
+
+	// flexbox
+	@include flexboxColumn1;
 }
 
 ul.slideshowList li .view .scene {
@@ -71,25 +133,55 @@ ul.slideshowList li .view .scene {
 	transform-style: preserve-3d;
 }
 
+// SECTION "SCENE":  VALLEY OF THE WINDS
+// more specific to Valley of the Winds
+ul.slideshowList li.valley_winds .view .scene {
+	transform: translateX(3.5625em) translateY(-3.875em) translateZ(-50em) rotateX(58deg) rotateY(0deg) rotateZ(31deg);
+}
+
+// SECTION "SCENE":  RAGING FIRE BRUSH
+ul.slideshowList li.raging_fire_brush .view .scene {
+	transform: translateX(3.5625em) translateY(4.125em) translateZ(-50em) rotateX(58deg) rotateY(0deg) rotateZ(31deg);
+}
+
+// SECTION "SCENE":  HIGH SEQUOIA RITUAL
+ul.slideshowList li.high_sequoia .view .scene {
+	transform: translateX(3.5625em) translateY(4.125em) translateZ(-50em) rotateX(58deg) rotateY(0deg) rotateZ(31deg);
+}
+
 .view .scene div.vlak_0, .view .scene div.vlak_1 {
+	@include marginPaddingReset1;
 	// width: 900px;
 	// height: 575px;
 	// width: 56.25em;
 	// height: 35.9375em;
-	width: 52.25em;
-	height: 35.9375em;
+	width: 43.25em;
+	height: 28.9375em;
 }
 
-.view .scene div.vlak_0 {
+// NOTE/WARNING:  removing the css transform on the image holding divs div.vlak_0, div.vlak_1 prevents the sideways translate in my animation
+
+// general targeting on the vlak_0 image
+ul.slideshowList li .view .scene div.vlak_0 {
+	// transform: translateX(-7.625em) translateY(6.28125em) translateZ(10em);
+}
+
+// focused on Valley of the Winds
+ul.slideshowList li.valley_winds .view .scene div.vlak_0 {
+	// custom 3D location coordinates... because unlike the single images, the two images take up more 3D space and require custom coordination
 	// transform in the individual element
 	// transform: translateX(150px) translateY(-347.5px) translateZ(0px);
 	// transform: translateX(9.375em) translateY(-21.71875em) translateZ(0em);
+	// transform: translateX(9.375em) translateY(10.28125em) translateZ(10em);
 }
 
-.view .scene div.vlak_1 {
+// focused on Valley of the Winds
+ul.slideshowList li.valley_winds .view .scene div.vlak_1 {
+	// custom 3D location coordinates... because unlike the single images, the two images take up more 3D space and require custom coordination
 	// transform in the individual element
 	// transform: translateX(150px) translateY(307.5px) translateZ(0px);
 	// transform: translateX(9.375em) translateY(19.21875em) translateZ(0em);
+	// transform: translateX(9.375em) translateY(11.21875em) translateZ(10em);
 }
 
 .view .scene img.component_img {
@@ -98,6 +190,14 @@ ul.slideshowList li .view .scene {
 	// CSS animation
 	// @include hover1;
 	// animation: hover linear 5s infinite;
+	
+	position: relative;
+}
+
+.view .scene div.vlak_0 img, .view .scene div.vlak_1 img {
+	max-width: 100%;
+
+	// position: relative;
 }
 
 // // END VIEW ------------------------------------------------
@@ -111,6 +211,35 @@ section.slideshow ul.slideshowList li .details {
 	// flex child
 	flex: 2 33.333333333%;
 	order: 1;
+	// subtract margin from flex if using left, right
+	flex: 2 31.333333333%;
+
+	color: white;
+
+	margin-left: 2%;
+	margin-top: 8%;
+
+	// TESTING
+	// background: blue;
+
+	h3 {
+		margin-bottom: 3%;
+		font-size: $basefontsize*0.9;
+	}
+
+	h2 {
+		margin-bottom: 3%;
+		font-size: $basefontsize*3;
+	}
+
+	p, cite {
+		font-size: $basefontsize*0.7;
+		color: $baseFontColor;
+	}
+
+	a {
+		color: $baseFontColor;
+	}
 }
 
 // // END DETAILS ------------------------------------------------

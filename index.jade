@@ -10,9 +10,13 @@ block content
 
 	section.slideshow
 		ul.slideshowList
-			li.valley_winds
+			// SECTION:  VALLEY OF THE WINDS  ------------------------------------------------
+			li.valley_winds.activeSlide
 				// where all <li> elements contain div.view, div.details
 				// also need div.scene for sure for transform rotations
+				
+				// VIEW SECTION  ------------------------------------------------
+				// holds images
 				div.view
 					div.scene
 						div.vlak_0
@@ -25,7 +29,10 @@ block content
 								.content
 									//- img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
 									img(src="http://lorempixel.com/900/575", alt="", class='component_img')
-
+				// END VIEW SECTION ------------------------------------------------
+				
+				// VIEW DETAILS  ------------------------------------------------
+				// holds the content that will be displayed beside the images
 				div.details
 					div.content
 						h3 Site of the SkyFire Ritual
@@ -38,6 +45,76 @@ block content
 								a(href="#") Sally
 								| , 
 								a(href="#") James
+				// END VIEW DETAILS ------------------------------------------------
+			// END SECTION:  VALLEY OF THE WINDS ------------------------------------------------
+			
+			// SECTION:  RAGING FIRE BRUSH  ------------------------------------------------
+			li.raging_fire_brush.nonactiveSlide
+				// where all <li> elements contain div.view, div.details
+				// also need div.scene for sure for transform rotations
+				
+				// VIEW SECTION  ------------------------------------------------
+				// holds images
+				div.view
+					div.scene
+						div.vlak_0
+							a(href="#", target='_self')
+								.content
+									//- img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									img(src="http://lorempixel.com/900/575", alt="", class='component_img')
+						div.vlak_1
+				// END VIEW SECTION ------------------------------------------------
+				
+				// VIEW DETAILS  ------------------------------------------------
+				// holds the content that will be displayed beside the images
+				div.details
+					div.content
+						h3 Site of the Raging Fire Ritual
+						h2 Burning Man in the Canyon
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti exercitationem neque voluptate repellat. Reiciendis, esse!
+						aside.credits
+							p Credits:  
+								a(href="#") Jacob
+								| , 
+								a(href="#") Bob
+								| , 
+								a(href="#") Silver
+				// END VIEW DETAILS ------------------------------------------------
+			// END SECTION:  RAGING FIRE BRUSH ------------------------------------------------
+			
+			// SECTION:  HIGH SEQUOIA RITUAL  ------------------------------------------------
+			li.high_sequoia.nonactiveSlide
+				// where all <li> elements contain div.view, div.details
+				// also need div.scene for sure for transform rotations
+				
+				// VIEW SECTION  ------------------------------------------------
+				// holds images
+				div.view
+					div.scene
+						div.vlak_0
+							a(href="#", target='_self')
+								.content
+									//- img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									img(src="http://lorempixel.com/900/575", alt="", class='component_img')
+						div.vlak_1
+				// END VIEW SECTION ------------------------------------------------
+				
+				// VIEW DETAILS  ------------------------------------------------
+				// holds the content that will be displayed beside the images
+				div.details
+					div.content
+						h3 View the earth from 200 ft in the air...
+						h2 High Sequoia Village
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti exercitationem neque voluptate repellat. Reiciendis, esse!
+						aside.credits
+							cite Credits
+								a(href="#") Susan
+								| , 
+								a(href="#") Richard
+								| , 
+								a(href="#") Kelly
+				// END VIEW DETAILS ------------------------------------------------
+			// END SECTION:  RAGING FIRE BRUSH ------------------------------------------------
 
 	////////////////////////////////////////////
 	// END HOMEPAGE SLIDESHOW VIEW
