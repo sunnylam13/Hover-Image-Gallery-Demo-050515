@@ -36,7 +36,8 @@ section.slideshow ul.slideshowList {
 	width: 100%;
 	height: auto;
 
-	// flexbox
+	// this is the parent of all of the <li> slides so if you want them to slide into existence you'll need to set it to position relative
+	position: relative;
 }
 
 // ALL SECTIONS
@@ -81,6 +82,12 @@ section.slideshow ul.slideshowList li:nth-child(2), section.slideshow ul.slidesh
 	// TESTING
 	border: 5px solid green;
 	position: absolute;
+
+	// POSITION THE OTHER LI ELEMENTS
+	// position the slide to the top and slide to the left so that you can shift it right with jQuery
+	// when we want to hide a <li> we use jQuery to apply the properties here to that <li> "slide"
+	top: 0; // aligning it with the top of the parent ul.slideshowList
+	left: -9999em; // we shift it super far left so that it's never seen
 }
 
 // alternative create a class for active slides and inactive slides
