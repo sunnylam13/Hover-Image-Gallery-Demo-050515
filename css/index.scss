@@ -8,24 +8,179 @@
 ///// 		HOMEPAGE SLIDESHOW VIEW
 ///////////////////////////////////////////////
 
+// OVERALL PARENTS  ------------------------------------------------
+// these areas deal with backgrounds and positioning
+
 section.slideshow {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
 	width: 100%;
+
+	// to hide the images from spilling over the edges of the screen
+	overflow: hidden;
 }
 
-ul.slideshowList {
+section.slideshow ul.slideshowList {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
 	width: 100%;
 }
 
-ul.slideshowList li {
+section.slideshow ul.slideshowList li {
 	@include marginPaddingReset1;
 	// expand it to the maximum possible width
 	width: 100%;
+
+	// flexbox
+	// want the elements beside each other
+	@include flexboxRow1;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+}
+// // END OVERALL PARENTS ------------------------------------------------
+
+
+
+// VIEW  ------------------------------------------------
+// this is the section where the images are altered and hover
+
+section.slideshow ul.slideshowList li .view {
+	// flex child
+	flex: 2 66.666666667%;
+	order: 2;
+}
+
+ul.slideshowList li .view .scene {
+	// this is the one where we start to rotate it with transform
+	// it is the holding element that carries the children... then you transform the children too
+	// position .scene before you position the images 
+	// uses ems instead of pixels
+	// translateX(425px) translateY(50px) translateZ(-800px) rotateX(58deg) rotateY(0deg) rotateZ(31deg)
+	// transform: translateX(16.5625em) translateY(3.125em) translateZ(-50em) rotateX(58deg) rotateY(0deg) rotateZ(31deg);
+	transform: translateX(8.5625em) translateY(3.125em) translateZ(-50em) rotateX(58deg) rotateY(0deg) rotateZ(31deg);
+
+	// flexbox
+	@include flexboxColumn1;
+	justify-content: space-around;
+	align-content: space-around;
+	align-items: center;
+
+	//3D
+	transform-style: preserve-3d;
+}
+
+.view .scene div.vlak_0, .view .scene div.vlak_1 {
+	// width: 900px;
+	// height: 575px;
+	// width: 56.25em;
+	// height: 35.9375em;
+	width: 52.25em;
+	height: 35.9375em;
+}
+
+.view .scene div.vlak_0 {
+	// transform in the individual element
+	// transform: translateX(150px) translateY(-347.5px) translateZ(0px);
+	// transform: translateX(9.375em) translateY(-21.71875em) translateZ(0em);
+}
+
+.view .scene div.vlak_1 {
+	// transform in the individual element
+	// transform: translateX(150px) translateY(307.5px) translateZ(0px);
+	// transform: translateX(9.375em) translateY(19.21875em) translateZ(0em);
+}
+
+.view .scene img.component_img {
+	max-width: 100%;
+
+	// CSS animation
+	// @include hover1;
+	// animation: hover linear 5s infinite;
+}
+
+// // END VIEW ------------------------------------------------
+
+
+
+// DETAILS  ------------------------------------------------
+// this is for the written content
+
+section.slideshow ul.slideshowList li .details {
+	// flex child
+	flex: 2 33.333333333%;
+	order: 1;
+}
+
+// // END DETAILS ------------------------------------------------
+
+///////////////////////////////////////////////
+/// END HOMEPAGE SLIDESHOW VIEW
+////////////////////////////////////////////
+
+
+////////////////////////////////////////////
+///// 		HOMEPAGE SLIDESHOW CONTROLLER
+///////////////////////////////////////////////
+
+section.slideshow_controller {
+	width: 100%;
+}
+
+section.slideshow_controller ul {
+	//flexbox
+	@include flexboxRow1;
+}
+
+section.slideshow_controller ul li {
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+	position: relative;
+}
+
+section.slideshow_controller ul li .base {
+	width: 168px;
+	height: 65px;
+	position: absolute;
+	top: 2px;
+	left: -18px;
+	@include transitionEffectAllEaseOut(.094);
+	opacity: 0;
+}
+
+section.slideshow_controller ul li .title {
+	//flexbox
+	@include flexboxColumn1;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+	width: 135px;
+	height: 36px;
+
+	// set the z-index so that when you hover you can actually see the pointer
+	position: relative;
+	z-index:20;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+section.slideshow_controller li p {
+	@include marginPaddingReset1;
+	display: inline-block;
+
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 ///////////////////////////////////////////////
+///// 		END HOMEPAGE SLIDESHOW CONTROLLER
+///////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////

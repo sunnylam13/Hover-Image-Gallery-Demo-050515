@@ -12,16 +12,19 @@ block content
 		ul.slideshowList
 			li.valley_winds
 				// where all <li> elements contain div.view, div.details
+				// also need div.scene for sure for transform rotations
 				div.view
 					div.scene
 						div.vlak_0
-							a(href="http://", target="_blank")
+							a(href="#", target='_self')
 								.content
-									img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									//- img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									img(src="http://lorempixel.com/900/575", alt="", class='component_img')
 						div.vlak_1
-							a(href="http://", target="_blank")
+							a(href="#", target='_self')
 								.content
-									img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									//- img(src="http://lorempixel.com/900/575", alt="", width='900', height='575', class='component_img')
+									img(src="http://lorempixel.com/900/575", alt="", class='component_img')
 
 				div.details
 					div.content
@@ -37,5 +40,31 @@ block content
 								a(href="#") James
 
 	////////////////////////////////////////////
+	// END HOMEPAGE SLIDESHOW VIEW
+	////////////////////////////////////////////
 
+	////////////////////////////////////////////
+	// 		HOMEPAGE SLIDESHOW CONTROLLER
+	//////////////////////////////////////////
+	
+	section.slideshow_controller
+		.timer
+		ul
+			// when a specific controller item is active, give it an "active" class with jQuery
+			li(data-json='{"url":"sotd"}').slideshow_controller_item
+				.base
+				.title
+					p SOTD
+			li(data-json='{"url":"navigation0 hot horizontal"}').slideshow_controller_item
+				.base
+				.title
+					p HOT!
+			li(data-json='{"url":"navigation1 advert vertical"}').slideshow_controller_item
+				.base
+				.title
+					p ADVERT
+
+	////////////////////////////////////////////
+	// END HOMEPAGE SLIDESHOW CONTROLLER
+	////////////////////////////////////////////
 	
